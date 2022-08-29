@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.10.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet author="test (generated)" id="1611307547516-11">
+        <createTable tableName="country">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="country_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="default_currency" type="VARCHAR(255)"/>
+            <column name="primary_tax_label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="test (generated)" id="1611307547516-12">
+        <loadData commentLineStartsWith="#" encoding="UTF-8" relativeToChangelogFile="true" file="zebra_data/country.csv" quotchar="&quot;" separator="," tableName="country">
+            <column header="id" name="id" type="NUMERIC"/>
+            <column header="code" name="code" type="STRING"/>
+            <column header="name" name="name" type="STRING"/>
+            <column header="default_currency" name="default_currency" type="STRING"/>
+            <column header="primary_tax_label" name="primary_tax_label" type="STRING"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

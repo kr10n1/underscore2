@@ -1,0 +1,14 @@
+liquibase:
+  datasources:
+    zebra:
+      change-log: 'classpath:db/zebra-changelog.xml'
+
+datasources:
+  underscore_test: #remove underscore and connection is created properly
+    url: jdbc:tc:postgresql:12:///zebra
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    username: postgres
+    databasename: zebra
+    password: transformers
+    schema-generate: none #CREATE_DROP
+    dialect: POSTGRES
